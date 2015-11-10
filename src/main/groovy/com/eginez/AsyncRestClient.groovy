@@ -3,7 +3,6 @@ package com.eginez
 import groovyx.net.http.RESTClient
 import rx.Observable
 import rx.Scheduler
-import rx.functions.Func0
 import rx.schedulers.Schedulers
 
 import static rx.util.async.Async.*
@@ -52,7 +51,7 @@ class AsyncRestClient {
         return start({ restClient.put(args) }, scheduler)
     }
 
-    public Observable<Object> deleteAsync( Map<String,?> args, Scheduler scheduler = DEFAULT_SCHEDULER ) {
+    public Observable<Object> deleteAsync( Map<String,?> args, Scheduler scheduler = Schedulers.io()){
         return start({ restClient.delete(args) }, scheduler)
     }
 }
