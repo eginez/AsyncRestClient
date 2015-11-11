@@ -8,7 +8,7 @@ import rx.schedulers.Schedulers
 import static rx.util.async.Async.*
 
 class AsyncRestClient {
-    @Delegate private RESTClient restClient
+    @Delegate protected RESTClient restClient
 
 
     /**
@@ -16,7 +16,7 @@ class AsyncRestClient {
      * @see groovyx.net.http.HTTPBuilder#HTTPBuilder()
      */
     public AsyncRestClient() {
-        restClient = new RESTClient();
+        restClient = new RESTClient()
     }
 
     /**
@@ -54,4 +54,5 @@ class AsyncRestClient {
     public Observable<Object> deleteAsync( Map<String,?> args, Scheduler scheduler = Schedulers.io()){
         return start({ restClient.delete(args) }, scheduler)
     }
+
 }
