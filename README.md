@@ -21,6 +21,6 @@ Observable<Object>.zip(
         //proccess them eg:
         [res1.data: res2.data]
     })
-    .subscribe { println '2 concurrent rest calls sync'd for processing'}
+    .subscribe { println '2 concurrent rest calls sync\'d for processing'}
 ```
 
