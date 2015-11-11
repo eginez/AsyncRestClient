@@ -2,7 +2,7 @@
 This is an light weight extension of groovy's RESTClient to support asyn call via RxGroovy
 
 
-For RESTClient documentation: https://github.com/jgritman/httpbuilder/wiki/RESTClient
+For RESTClient documentation: https://github.com/jgritman/httpbuilder/wiki/RESTClient. 
 For RxGroovy documentation: https://github.com/ReactiveX/RxGroovy
 
 Quick example:
