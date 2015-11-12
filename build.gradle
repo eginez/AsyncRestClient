@@ -1,7 +1,13 @@
-group 'com.eginez'
-version '1.0-SNAPSHOT'
+plugins {
+    id "com.jfrog.bintray" version "1.4"
+}
 
 apply plugin: 'groovy'
+apply plugin: 'com.jfrog.bintray'
+
+group 'org.eginez.groovy'
+version '1.0'
+
 
 repositories {
     mavenCentral()
@@ -14,3 +20,40 @@ dependencies {
     compile 'com.netflix.rxjava:rxjava-async-util:0.20.7'
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
+
+Properties properties = new Properties()
+File propFile = new File("local.properties")
+properties.load(propFile.newDataInputStream())
+
+bintray {
+    user = properties.get('bintrayUser')
+    key = properties.get('bintrayApikey')
+    configurations = ['archives']
+    filesSpec {
+        from 'build/libs'
+        into '/'
+    }
+    pkg {
+        repo = "maven"
+        name = 'org.eginez.groovy.AsyncRestClient'
+        desc = "light weight extension of groovy's RESTClient to support asyn call via RxGroovy"
+        websiteUrl = 'https://github.com/eginez/AsyncRestClient'
+        vcsUrl = 'https://github.com/eginez/AsyncRestClient.git'
+        licenses = ['Apache-2.0']
+        labels = ['groovy', 'RxGroovy', 'RESTClient']
+        publish = true
+        version {
+            name = '1.0'
+            desc = 'Async RESTClient extension with RxGroovy'
+            released  = new Date()
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
+
+
+
+

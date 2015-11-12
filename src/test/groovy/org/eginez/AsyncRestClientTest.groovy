@@ -1,4 +1,4 @@
-package com.eginez
+package org.eginez
 
 import groovy.mock.interceptor.MockFor
 import groovyx.net.http.RESTClient

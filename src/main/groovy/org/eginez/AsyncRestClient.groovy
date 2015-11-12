@@ -1,4 +1,4 @@
-package com.eginez
+package org.eginez
 
 import groovyx.net.http.RESTClient
 import rx.Observable
@@ -38,19 +38,38 @@ class AsyncRestClient {
         restClient = new RESTClient(defaultURI, defaultContentType)
     }
 
-
+    /**
+     * Convience method to performed a GET using observables
+     * @param args named parameters - see
+     *  {@link HTTPBuilder.RequestConfigDelegate#setPropertiesFromMap(Map)}
+     */
     public Observable<Object> getAsync(Map<String,?> args, Scheduler scheduler = Schedulers.io()){
         return start({ restClient.get(args) }, scheduler)
     }
 
+    /**
+     * Convience method to performed a POST using observables
+     * @param args named parameters - see
+     *  {@link HTTPBuilder.RequestConfigDelegate#setPropertiesFromMap(Map)}
+     */
     public Observable<Object> postAsync( Map<String,?> args, Scheduler scheduler = Schedulers.io() ) {
         return start({ restClient.post(args) }, scheduler)
     }
 
+    /**
+     * Convience method to performed a PUT using observables
+     * @param args named parameters - see
+     *  {@link HTTPBuilder.RequestConfigDelegate#setPropertiesFromMap(Map)}
+     */
     public Observable<Object> putAsync( Map<String,?> args, Scheduler scheduler = Schedulers.io() ) {
         return start({ restClient.put(args) }, scheduler)
     }
 
+    /**
+     * Convience method to performed a DELETE using observables
+     * @param args named parameters - see
+     *  {@link HTTPBuilder.RequestConfigDelegate#setPropertiesFromMap(Map)}
+     */
     public Observable<Object> deleteAsync( Map<String,?> args, Scheduler scheduler = Schedulers.io()){
         return start({ restClient.delete(args) }, scheduler)
     }
