@@ -3,6 +3,8 @@ plugins {
 }
 
 apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
 group 'org.eginez.groovy'
@@ -36,7 +38,7 @@ bintray {
     pkg {
         repo = "maven"
         name = 'org.eginez.groovy.AsyncRestClient'
-        desc = "light weight extension of groovy's RESTClient to support asyn call via RxGroovy"
+        desc = "light weight extension of groovy's RESTClient to support async call via RxGroovy"
         websiteUrl = 'https://github.com/eginez/AsyncRestClient'
         vcsUrl = 'https://github.com/eginez/AsyncRestClient.git'
         licenses = ['Apache-2.0']
@@ -50,8 +52,17 @@ bintray {
     }
 }
 
+task sourcesJar(type: Jar) {
+    from sourceSets.main.groovy.srcDirs
+    classifier = 'sources'
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.4'
+}
+
+artifacts {
+    archives sourcesJar
 }
 
 
