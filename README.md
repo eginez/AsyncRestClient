@@ -1,3 +1,4 @@
+[ ![Download](https://api.bintray.com/packages/eginez/maven/org.eginez.groovy.AsyncRestClient/images/download.svg) ](https://bintray.com/eginez/maven/org.eginez.groovy.AsyncRestClient/_latestVersion)
 # AsyncRestClient
 This is a light weight extension of groovy's RESTClient to support asyn call via RxGroovy
 
