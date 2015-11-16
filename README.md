@@ -2,6 +2,13 @@
 # AsyncRestClient
 This is a light weight extension of groovy's RESTClient to support asyn call via RxGroovy
 
+Install:
+
+```groovy
+dependencies {
+        compile 'org.eginez.groovy:AsyncRestClient:1.0'
+}
+```
 
 For RESTClient documentation: https://github.com/jgritman/httpbuilder/wiki/RESTClient. 
 For RxGroovy documentation: https://github.com/ReactiveX/RxGroovy
