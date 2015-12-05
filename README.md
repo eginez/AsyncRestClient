@@ -6,7 +6,7 @@ Install:
 
 ```groovy
 dependencies {
-        compile 'org.eginez.groovy:AsyncRestClient:1.1'
+        compile 'org.eginez.groovy:AsyncRestClient:1.+'
 }
 ```
 
