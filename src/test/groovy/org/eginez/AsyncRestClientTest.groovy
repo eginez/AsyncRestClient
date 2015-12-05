@@ -42,7 +42,7 @@ class AsyncRestClientTest {
     private void testAsync(RESTClient mock, String method) {
         def cd = new CountDownLatch(1)
         def success = false
-        AsyncRestClient."$method"(mock, [path: '/']).subscribe { res ->
+        AsyncRest."$method"(mock, [path: '/']).subscribe { res ->
             res == method
             success = true
             cd.countDown()

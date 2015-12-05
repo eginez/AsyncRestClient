@@ -7,7 +7,7 @@ import rx.schedulers.Schedulers
 
 import static rx.util.async.Async.*
 
-class AsyncRestClient {
+class AsyncRest {
 
     /**
      * Convience method to performed a GET using observables
